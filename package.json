@@ -1,0 +1,21 @@
+{
+  "name": "babel-plugin-webpack-async-module-name",
+  "version": "1.0.0",
+  "description": "This plugin use custom identifier to named webpack dynamic import modules.",
+  "main": "src/index.js",
+  "scripts": {},
+  "keywords": [
+    "babel",
+    "plugin"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tgxhx/babel-plugin-webpack-async-module-name.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tgxhx/babel-plugin-webpack-async-module-name/issues"
+  },
+  "homepage": "https://github.com/tgxhx/babel-plugin-webpack-async-module-name",
+  "author": "tgxh2020@gmail.com",
+  "license": "MIT"
+}
