@@ -1,0 +1,6 @@
+importName('./src/a.js')
+importName('./src/a.js', 'module-a')
+importName(['./src/b.js'])
+importName(['./src/b.js'], 'module-b')
+importName(['./src/c.js', './src/d.js'])
+importName(['./src/c.js', './src/d.js'], 'module-c-d')

@@ -1,0 +1,6 @@
+import('./src/a.js');
+import( /*webpackChunkName: 'module-a'*/'./src/a.js');
+Promise.all([import('./src/b.js')]);
+Promise.all([import( /*webpackChunkName: 'module-b'*/'./src/b.js')]);
+Promise.all([import('./src/c.js'), import('./src/d.js')]);
+Promise.all([import( /*webpackChunkName: 'module-c-d'*/'./src/c.js'), import( /*webpackChunkName: 'module-c-d'*/'./src/d.js')]);
