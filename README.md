@@ -7,6 +7,11 @@
 npm i -D babel-plugin-webpack-async-module-name
 ```
 
+## Test
+``` shell
+npm run test
+```
+
 ## Usage
 
 Add the plugin to [babelrc](https://babeljs.io/docs/usage/babelrc/):

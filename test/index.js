@@ -1,25 +1,36 @@
-const babel = require('babel-core')
-const path = require('path')
-const readFileSync = require('fs').readFileSync
-const expect = require('chai').expect
+const babel6 = require('babel-core');
+const babel7 = require('@babel/core');
+const path = require('path');
+const readFileSync = require('fs').readFileSync;
+const expect = require('chai').expect;
 
-function testPlugin(code, plugin) {
+function testPlugin(babel, code) {
   const result = babel.transform(code, {
-    plugins: ['./src/index.js']
-  })
-  return result.code
+    plugins: ['./lib/index.js'],
+  });
+  return result.code;
 }
 
 function replaceLineBreak(string) {
-  return string.replace(/\r\n/ig, '\n')
+  return string.replace(/\r\n|\n/gi, '');
+}
+
+function readFile(filepath) {
+  return readFileSync(path.join(__dirname, filepath), 'utf8');
 }
 
 describe('babel-plugin-webpack-async-module-name', () => {
-  const actual = readFileSync(path.join(__dirname, 'actual.code'), 'utf8')
-  const expected = readFileSync(path.join(__dirname, 'expected.code'), 'utf8')
+  it('babel6: The transformation code should be equal to the expected code.', () => {
+    const actual = readFile('babel6.actual.code');
+    const expected = readFile('babel6.expected.code');
+    const result = testPlugin(babel6, actual);
+    expect(replaceLineBreak(result)).to.equal(replaceLineBreak(expected));
+  });
 
-  it('The transformation code should be equal to the expected code.', () => {
-    const result = testPlugin(actual)
-    expect(replaceLineBreak(result)).to.equal(replaceLineBreak(expected))
-  })
-})
+  it('babel7: The transformation code should be equal to the expected code.', () => {
+    const actual = readFile('babel7.actual.code');
+    const expected = readFile('babel7.expected.code');
+    const result = testPlugin(babel7, actual);
+    expect(replaceLineBreak(result)).to.equal(replaceLineBreak(expected));
+  });
+});
