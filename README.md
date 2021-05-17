@@ -1,6 +1,10 @@
+[![Downloads](https://img.shields.io/npm/dm/babel-plugin-webpack-async-module-name.svg)](https://www.npmjs.com/package/babel-plugin-webpack-async-module-name)
+
 # babel-plugin-webpack-async-module-name
 
 > This plugin use custom identifier to named webpack dynamic import modules, supports single or multiple modules.
+> 
+> Support Babel 6 and Babel 7.
 
 ## Installation
 ``` shell
